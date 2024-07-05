@@ -1,0 +1,22 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ant-form-item-label > label.ant-form-item-required::before {
+    content: "*";
+    color: red;
+    margin-right: 4px;
+  }
+  
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+  
+  /* @media (max-width: 768px) {
+    .ant-col {
+      flex: 100%;
+    }
+  }
+   */

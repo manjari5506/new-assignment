@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CompanyForm from './Components/CompanyForm';
-import AddressForm from './Components/AddressForm';
+import AddressType from "./Components/AddressType";
 import './App.css';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
     <div className="main-container">
       <h2>Company Information</h2>
       <CompanyForm />
-      <AddressForm />
+      <AddressType/>
     </div>
   );
 }

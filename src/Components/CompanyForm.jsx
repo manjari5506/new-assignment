@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Input, Row, Col, Button } from 'antd';
 import { useDispatch } from 'react-redux';
 import { saveCompanyInfo } from '../redux/companySlice';
@@ -6,8 +6,19 @@ import { saveCompanyInfo } from '../redux/companySlice';
 const CompanyForm = () => {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
+  const [companyData, setCompanyData] = useState({});
+  const [companyAddress, setCompanyAddress] = useState([])
+
+  const getCompanyAddress = (key) => {
+    let data = localStorage.getItem(key);
+    return JSON.parse(data);
+  };
 
   const onFinishCompany = (values) => {
+    const addressArray = getCompanyAddress("address");
+    setCompanyAddress(addressArray);
+    values.address = addressArray;
+    setCompanyData(values);
     dispatch(saveCompanyInfo(values));
   };
 
@@ -39,7 +50,7 @@ const CompanyForm = () => {
           </Form.Item>
         </Col>
       </Row>
-      <Button  htmlType="submit">Save</Button>
+      <Button  type="primary" htmlType="submit">Save</Button>
     </Form>
   );
 };
